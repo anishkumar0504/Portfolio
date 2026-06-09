@@ -136,13 +136,13 @@ useGSAP(() => {
     strokeDashoffset: 0,
     ease: "none",
     scrollTrigger: {
-      trigger: container.current, // 👈 same trigger as cards
-      start: "top+=200% top",           // 👈 same start
-      end: `+=${window.innerHeight * 1.2}`, // 👈 same end
-      scrub: true,                // smooth scrubbing
+      trigger: container.current, 
+      start: "top+=5% top",           
+      end: `+=${window.innerHeight * 1.2}`, 
+      scrub: true,                
     },
   });
-}, { dependencies: [] }); // Run once after mount
+}, { dependencies: [] }); 
 
 
  return (
@@ -153,11 +153,11 @@ useGSAP(() => {
   }}
 >      <div ref={container} className="w-100vh h-full">
         {/* SVG Section */}
-          <div className="svg-path "> {/* 👈 added "spotlight" class here as trigger */}
+          <div className="svg-path "> 
           <svg width="506" height="554" viewBox="0 0 506 554" fill="none" xmlns="http://www.w3.org/2000/svg">
            
 <path 
-              ref={svgPathRef} // 👈 attach ref
+              ref={svgPathRef} 
 d="M431.287 15.5038C431.287 15.5038 382.696 121.132 278.287 131.504C173.878 141.875 29.4547 72.6976 16.2863 153.504C-9.60068 312.356 617.678 301.303 378.286 350.504C52.2869 417.504 452.287 451.504 388.286 507.504C304.171 581.103 141.93 410.875 38.2863 557.504"   stroke="white" stroke-width="18" stroke-linecap="round"/>
 
           </svg>
@@ -165,7 +165,6 @@ d="M431.287 15.5038C431.287 15.5038 382.696 121.132 278.287 131.504C173.878 141.
 
 
 
-        {/* Rest of your sections remain unchanged */}
         <section className="justify-start items-start w-full h-screen">
          <div className="text-9xl font-bold items-start">
           SKILL
@@ -187,6 +186,7 @@ d="M431.287 15.5038C431.287 15.5038 382.696 121.132 278.287 131.504C173.878 141.
             <Card
               key={index}
               id={`card-${index + 1}`}
+              cardIndex={index}   
               frontSrc="./card.png"
               frontAlt="Card Images"
               backSrc="./images/back.png"
