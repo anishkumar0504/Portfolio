@@ -168,3 +168,299 @@
   border: 1px solid oklch(1 0 0 / 0.1);
   box-shadow: 0 8px 32px -8px oklch(0.25 0.2 295 / 0.4);
 }
+@import "tailwindcss";
+body {
+    width: 100%;
+    background-color:  #000000;
+    color: white;
+    scroll-behavior: smooth;
+    /* overflow-x: hidden; */
+      overflow-x: hidden; /* 👈 add this to prevent horizontal scroll */
+
+}
+.svg-path {
+  position: absolute;
+  top: 25svh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 100%;
+  z-index: -1;
+}
+
+.svg-path svg {
+  width: 100%;
+  height: auto;
+}
+.social-icon {
+  transition: transform 0.2s ease;
+}
+.social-icon:hover {
+  transform: translateY(-2px);
+}
+
+:root {
+    --card-1 :#b2b2b2;
+    --card-2: #ce2017;
+    --card-3: #2f2f2f;
+}
+
+section {
+    position : flex;
+    width : 100%;
+    height : 100vh;
+    display : flex;
+    justify-content: center;    
+    align-items: center;
+
+}
+
+.intro,.outro {
+    text-align: center;
+    align-content: center;
+}
+
+.sticky {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.sticky-header {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+
+}
+    .noisy {
+        @apply absolute inset-0 size-full bg-[url("/images/noise.png")];
+    }
+.card-3d {
+  border-radius: 1.5rem; /* match rounded-l-3xl */
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    0 40px 80px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+
+.card-container {
+    position: relative;
+    width: 75%;
+    display: flex;
+    perspective: 1000px;
+    transform: translate(40px);
+    will-change: width;
+}
+
+
+.card {
+    position: relative;
+    flex:1;
+    aspect-ratio: 5/2;
+    transform-style: preserve-3d;
+    transform-origin: top;
+}
+
+.card-1 {
+    border-rotation: 20px 0 0 20px ;
+    
+}
+/* 
+.card-2{
+
+} */
+
+.card-3 {
+    border-rotation: 0px 20px 20px 0px;
+    
+}
+
+.card-front , .card-back{
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: inherit;
+    overflow: none;
+}
+
+.card-back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: rotateY(180deg);
+    padding: 2rem;
+}
+.card-back span {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    opacity: 0.4;
+
+}
+
+#card-1 .card-back{
+    background-color: red;
+}
+
+
+
+#card-2 .card-back{
+    background-color: green;
+}
+
+
+#card-3 .card-back{
+    background-color: blue;
+}
+
+/* 
+.container {
+    width:100%;
+    height:100%;
+}
+img{
+    width:100%;
+    height:100%;
+    object-fit : cover;
+}
+section{
+    position: relative;
+    width: 100vh;
+    height:100vh;
+    background-color: black;
+}
+h1{
+    position: absolute;
+    top:50%;
+    transform:translate(-50%,-50%);
+    color:#fff;
+    text-align:center;
+    font-size:5vw;
+    font-weight: lighter;
+    font-height:100%;
+}
+.card{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:240px;
+    height:360px;
+    perspective: 1000px;
+}
+.card p{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align: center;
+    font-size:20px;
+    font-weight: 500;
+        
+}
+.card-wrapper{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:100%;
+    height:100%;
+    animation: floating 3s infinite ease-in-out;
+}
+#card-1 .card-wrapper{
+    animation-delay:0;
+}
+
+
+#card-2 .card-wrapper{
+    animation-delay:0.2;
+}
+#card-3 .card-wrapper{
+    animation-delay:0.4;
+}
+#card-4 .card-wrapper{
+    animation-delay:0.6;
+}
+
+.flip-card-inner{
+    position:relative;
+    width: 100%;
+    height: 100%;
+    transform-style :preserve-3d;
+     
+}
+.flip-card-front , .flip-card-back{
+     position: absolute;
+     width:100%;
+     height: 100%;
+     backface-visibility: hidden;
+     border-radius: 0.8em;
+     overflow: hidden;
+}
+.flip-card-back{
+    padding:1em;
+    background-color: #fff;
+    transform: rotateY(180deg);
+} */
+
+@keyframes floating{
+    0%{
+        transform: translate(-50%,-50%);
+    }
+    
+    50%{
+        transform: translate(-50%,-60%);
+    }
+    100%{
+        transform: translate(-50%,-50%);
+    }
+}
+.special-font b {
+  font-family: "Zentry";
+  font-feature-settings: "ss01" on;
+}
+.letter-stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px black;
+  text-stroke: 2px black;
+}
+.cards-container {
+  perspective: 1200px;
+  perspective-origin: center;
+}
+
+.capability-card {
+  width: 260px;
+  height: 340px;
+  transform-style: preserve-3d;
+}
+
+.capability-card-front,
+.capability-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 20px;
+}
+
+.capability-card-back {
+  background: #000;
+  transform: rotateY(180deg);
+}
+
+.capability-card-front {
+  background: #111;
+  color: white;
+}
+.cards-container {
+  perspective: 1200px;
+  perspective-origin: center;
+}
+
+.flip-card {
+  transform-style: preserve-3d;
+}
