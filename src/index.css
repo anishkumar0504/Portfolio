@@ -1,0 +1,170 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Portfolio design system — deep space dark with violet/cobalt accents.
+   All semantic tokens defined here; components must not hardcode colors. */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-violet: var(--violet);
+  --color-violet-glow: var(--violet-glow);
+  --color-cobalt: var(--cobalt);
+  --color-cyan-glow: var(--cyan-glow);
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --shadow-violet: 0 0 40px -10px color-mix(in oklab, var(--violet) 60%, transparent);
+  --shadow-violet-soft: 0 0 20px color-mix(in oklab, var(--violet) 30%, transparent);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-bounce-slow: bounce-slow 2s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s ease-out both;
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 30s linear infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(-6px); }
+    50% { transform: translateY(6px); }
+  }
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(8px); opacity: 1; }
+  }
+  @keyframes fade-up {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 30px color-mix(in oklab, var(--violet) 40%, transparent); }
+    50% { box-shadow: 0 0 60px color-mix(in oklab, var(--violet) 70%, transparent); }
+  }
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Deep space palette */
+  --background: oklch(0.12 0.02 280);            /* near-black #0a0a0f */
+  --foreground: oklch(0.97 0.01 250);            /* #f8fafc */
+  --card: oklch(0.16 0.03 285);
+  --card-foreground: oklch(0.97 0.01 250);
+  --popover: oklch(0.16 0.03 285);
+  --popover-foreground: oklch(0.97 0.01 250);
+  --primary: oklch(0.55 0.25 295);               /* electric violet #7c3aed */
+  --primary-foreground: oklch(0.98 0.005 250);
+  --secondary: oklch(0.22 0.04 285);
+  --secondary-foreground: oklch(0.97 0.01 250);
+  --muted: oklch(0.20 0.03 285);
+  --muted-foreground: oklch(0.70 0.03 250);      /* #94a3b8 */
+  --accent: oklch(0.50 0.20 265);                /* cobalt #2563eb */
+  --accent-foreground: oklch(0.98 0.005 250);
+  --destructive: oklch(0.62 0.23 25);
+  --destructive-foreground: oklch(0.98 0.005 250);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: oklch(0.55 0.25 295);
+
+  --violet: oklch(0.55 0.25 295);
+  --violet-glow: oklch(0.65 0.27 295);
+  --cobalt: oklch(0.50 0.20 265);
+  --cyan-glow: oklch(0.72 0.15 210);
+}
+
+.dark {
+  /* Same palette — portfolio is always dark */
+  --background: oklch(0.12 0.02 280);
+  --foreground: oklch(0.97 0.01 250);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 0% 0%, oklch(0.25 0.15 300 / 0.45), transparent 60%),
+      radial-gradient(ellipse 70% 60% at 100% 100%, oklch(0.22 0.13 270 / 0.5), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 100% 0%, oklch(0.18 0.08 290 / 0.35), transparent 60%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  /* Grain overlay using SVG turbulence */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.85'/></svg>");
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility text-gradient-violet {
+  background-image: linear-gradient(135deg, var(--violet-glow), var(--cobalt));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility glass-pill {
+  background-color: oklch(1 0 0 / 0.05);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid oklch(1 0 0 / 0.1);
+  box-shadow: 0 8px 32px -8px oklch(0.25 0.2 295 / 0.4);
+}
