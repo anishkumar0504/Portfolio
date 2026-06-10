@@ -1,65 +1,71 @@
 import { forwardRef } from "react";
-import {
-  FaInstagram,
-  FaXTwitter,
-  FaLinkedin,
-  FaGithub,
-  FaGlobe,
-} from "react-icons/fa6";
 
-const SOCIAL_ICON_MAP = {
-  instagram: FaInstagram,
-  twitter: FaXTwitter,
-  linkedin: FaLinkedin,
-  github: FaGithub,
-  website: FaGlobe,
+const SKILL_ICON_MAP = {
+  "C++": "cplusplus",
+  "Python": "python",
+  "JavaScript": "javascript",
+  "TypeScript": "typescript",
+  "React.js": "react",
+  "Next.js": "nextdotjs",
+  "Tailwind CSS": "tailwindcss",
+  "GSAP": "greensock",
+  "Zustand": "zustand",
+  "Node.js": "nodedotjs",
+  "Express.js": "express",
+  "BullMQ": "bull",
+  "Socket.IO": "socketdotio",
+  "FFmpeg": "ffmpeg",
+  "PostgreSQL": "postgresql",
+  "Redis": "redis",
+  "Docker": "docker",
+  "Kubernetes": "kubernetes",
+  "Supabase": "supabase",
+  "Prometheus": "prometheus",
+  "Grafana": "grafana",
+  "Hono": "hono",
 };
+
+const SkillIcons = ({ skills, size }) => (  <div className="flex justify-center gap-4 flex-wrap">
+    {skills.map((skill) => {
+      const slug = SKILL_ICON_MAP[skill];
+      if (!slug) return null;
+      return (
+        <img
+          key={skill}
+          src={`https://cdn.simpleicons.org/${slug}`}
+          alt={skill}
+          width={size}
+          height={size}
+          title={skill}
+          onError={(e) => {
+e.currentTarget.style.display = "none";
+          }}
+        />
+      );
+    })}
+  </div>
+);
 
 const cardData = [
   {
     label: "Languages",
-    skills: ["C++", "Python", "JavaScript", "TypeScript"],
-    socials: {
-      github: "https://github.com/anishkumar0504/",
-      linkedin: null,
-      twitter: null,
-    },
+    skills: ["C++", "Python", "JavaScript", "TypeScript",],
   },
   {
     label: "Frontend",
-    skills: ["React.js", "Tailwind CSS", "GSAP", "Zustand"],
-    socials: {
-      instagram: "https://instagram.com/",
-      twitter: "https://x.com/",
-      linkedin: null,
-    },
+    skills: ["React.js", "Next.js", "Tailwind CSS", "GSAP", "Zustand"],
   },
-  {
-    label: "Backend",
-    skills: ["Node.js", "Express.js", "WebSockets", "BullMQ", "Socket.IO"],
-    socials: {
-      github: "https://github.com/anishkumar0504/",
-      linkedin: "https://www.linkedin.com/in/anish-kumar-3425a8214/",
-      website: null,
-    },
-  },
+{
+  label: "Backend",
+  skills: ["Node.js", "Express.js", "Hono", "BullMQ", "Socket.IO", "FFmpeg"],
+},
   {
     label: "Database & DevOps",
-    skills: ["PostgreSQL", "Redis", "Prisma", "Docker", "MinIO"],
-    socials: {
-      linkedin: "https://www.linkedin.com/in/anish-kumar-3425a8214/",
-      github: "https://github.com/anishkumar0504/",
-      twitter: null,
-    },
+    skills: ["PostgreSQL", "Redis", "Docker", "Kubernetes", "Supabase", "Prometheus", "Grafana"],
   },
 ];
-
 const Card = forwardRef(({ id, frontSrc, frontAlt, backSrc, backAlt, cardIndex, flat }, ref) => {
   const data = cardData[cardIndex] ?? cardData[0];
-
-  const activeSocials = Object.entries(data.socials ?? {}).filter(
-    ([, href]) => href !== null && href !== undefined
-  );
 
   /* FLAT — static info card used in the mobile 2x2 grid (no flip / no absolute positioning) */
   if (flat) {
@@ -85,30 +91,10 @@ const Card = forwardRef(({ id, frontSrc, frontAlt, backSrc, backAlt, cardIndex, 
           </ul>
         </div>
 
-        {/* BOTTOM — SOCIALS */}
+        {/* BOTTOM — SKILL ICONS */}
         <div className="pb-4 px-4 mt-3">
           <div className="mb-3 h-px bg-gray-100" />
-          <div className="flex justify-center gap-4">
-            {activeSocials.length > 0 ? (
-              activeSocials.map(([key, href]) => {
-                const Icon = SOCIAL_ICON_MAP[key];
-                if (!Icon) return null;
-                return (
-                  <a
-                    key={key}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-gray-900 transition-colors duration-150"
-                  >
-                    <Icon className="text-[16px]" />
-                  </a>
-                );
-              })
-            ) : (
-              <span className="h-[16px]" />
-            )}
-          </div>
+          <SkillIcons skills={data.skills} size={16} />
         </div>
       </div>
     );
@@ -170,32 +156,11 @@ const Card = forwardRef(({ id, frontSrc, frontAlt, backSrc, backAlt, cardIndex, 
               </ul>
             </div>
 
-            {/* BOTTOM — SOCIALS */}
+            {/* BOTTOM — SKILL ICONS */}
             <div className="pb-6 px-6">
               {/* separator */}
               <div className="mb-4 h-px bg-gray-100" />
-              <div className="flex justify-center gap-5">
-                {activeSocials.length > 0 ? (
-                  activeSocials.map(([key, href]) => {
-                    const Icon = SOCIAL_ICON_MAP[key];
-                    if (!Icon) return null;
-                    return (
-                      <a
-                        key={key}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-gray-900 transition-colors duration-150"
-                      >
-                        <Icon className="text-[18px]" />
-                      </a>
-                    );
-                  })
-                ) : (
-                  /* empty spacer so card height stays consistent */
-                  <span className="h-[18px]" />
-                )}
-              </div>
+              <SkillIcons skills={data.skills} size={18} />
             </div>
 
           </div>
