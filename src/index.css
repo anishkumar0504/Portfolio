@@ -115,7 +115,10 @@
   --background: oklch(0.12 0.02 280);
   --foreground: oklch(0.97 0.01 250);
 }
-
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 @layer base {
   * { border-color: var(--color-border); }
 
@@ -206,13 +209,12 @@ body {
 }
 
 section {
-    position : flex;
-    width : 100%;
-    height : 100vh;
-    display : flex;
-    justify-content: center;    
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
-
 }
 
 .intro,.outro {

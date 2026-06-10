@@ -1,4 +1,5 @@
 import { ChevronDown, Mail, ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
 const GithubIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
     <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
@@ -17,9 +18,44 @@ const techStrings = [
 ];
 
 const techPills1 = ["React", "Node.js", "TypeScript", "PostgreSQL", "Redis"];
-const techPills2 = ["Docker", "Prisma", "Next.js", "Express", "FFmpeg"];
-
+const techPills2 = ["Docker", "Prisma", "Next.js", "Express", "Kubernetes"];
+const roles = [
+  "Fullstack Developer",
+  "DevOps Engineer",
+  "Cloud Builder",
+  "AI SaaS Builder",
+  "Backend Engineer",
+];
 export function Hero() {
+ const [displayed, setDisplayed] = useState("");
+const [roleIndex, setRoleIndex] = useState(0);
+const [typing, setTyping] = useState(true);
+
+useEffect(() => {
+  const current = roles[roleIndex];
+  let timeout: ReturnType<typeof setTimeout>;
+
+  if (typing) {
+    if (displayed.length < current.length) {
+      timeout = setTimeout(() => {
+        setDisplayed(current.slice(0, displayed.length + 1));
+      }, 60);
+    } else {
+      timeout = setTimeout(() => setTyping(false), 1800);
+    }
+  } else {
+    if (displayed.length > 0) {
+      timeout = setTimeout(() => {
+        setDisplayed(displayed.slice(0, -1));
+      }, 35);
+    } else {
+      setRoleIndex((i) => (i + 1) % roles.length);
+      setTyping(true);
+    }
+  }
+
+  return () => clearTimeout(timeout);
+}, [displayed, typing, roleIndex]);
   return (
     <section
       id="home"
@@ -31,7 +67,7 @@ export function Hero() {
     >
       <div className="mx-auto max-w-7xl w-full grid md:grid-cols-[40%_60%] gap-10 items-center">
         {/* LEFT — photo */}
-        <div className="relative h-[480px] md:h-[560px] w-full">
+        <div className="relative h-[340px] sm:h-[440px] md:h-[560px] w-full">
           {/* violet blob */}
           <div
             className="absolute z-0 rounded-full pointer-events-none"
@@ -94,18 +130,25 @@ export function Hero() {
           <p className="text-sm tracking-widest uppercase mb-2" style={{ color: "#a78bd9" }}>
             Hello, I am
           </p>
-          <h1 className="font-display font-black text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05]">
-            Your Name
+          <h1 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05]">
+            Anish Kuma<span className="text-transparent" style={{ WebkitTextStroke: "2px white" }}>
+              r
+            </span>
           </h1>
-          <p className="mt-3 text-xl" style={{ color: "#4f8ef7" }}>
-            Fullstack Developer &amp; Designer
-          </p>
+        <p className="mt-3 text-lg sm:text-xl" style={{ color: "#4f8ef7" }}>
+  {displayed}
+  <span
+    className="inline-block w-[2px] h-[1.1em] ml-[2px] align-middle"
+    style={{ background: "#e879f9", animation: "blink 1s step-end infinite" }}
+  />
+</p>
 
-          <p className="mt-5 text-sm text-white/60 leading-relaxed max-w-xl">
-            I build end-to-end web products — from pixel-perfect interfaces to scalable backend
-            services. Currently shipping open-source tools and freelance projects, focused on
-            performance, accessibility, and craft.
-          </p>
+         <p className="mt-5 text-sm text-white/60 leading-relaxed max-w-xl">
+  I'm a fullstack developer who builds scalable, production-ready systems 
+  from real-time video pipelines and AI-powered search to SaaS platforms. 
+  I care about clean architecture, observable backends, and shipping things 
+  that actually work at scale.
+</p>
 
           <div className="mt-6 flex flex-wrap gap-2">
             {techPills1.map((p) => (
@@ -130,9 +173,9 @@ export function Hero() {
 
           <div className="mt-8 flex items-center gap-3">
             {[
- { Icon: LinkedinIcon, href: "https://linkedin.com", label: "LinkedIn" },
-{ Icon: Mail, href: "mailto:hello@example.com", label: "Email" },
-{ Icon: GithubIcon, href: "https://github.com", label: "GitHub" },
+ { Icon: LinkedinIcon, href: "https://www.linkedin.com/in/anish-kumar-3425a8214/", label: "LinkedIn" },
+{ Icon: Mail, href: "mailto:0504anish@gmail.com", label: "Email" },
+{ Icon: GithubIcon, href: "https://github.com/anishkumar0504/", label: "GitHub" },
             ].map(({ Icon, href, label }) => (
               <a
                 key={label}

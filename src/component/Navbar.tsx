@@ -40,7 +40,7 @@ export function Navbar() {
             : "max-w-6xl bg-transparent px-2 py-3"
         }`}
       >
-        <a href="#home" className="font-display font-bold text-2xl tracking-tight text-gradient-violet">
+        <a href="#home" className="font-display font-bold text-2xl tracking-tight text-gradient-violet shrink-0">
           AK
         </a>
 
@@ -64,18 +64,18 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <a
             href="/cv.pdf"
             download
-            className="hidden sm:inline-flex items-center gap-2 rounded-full bg-violet px-4 py-2 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_var(--violet-glow)]"
+            className="hidden md:inline-flex items-center gap-2 rounded-full bg-violet px-4 py-2 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_var(--violet-glow)]"
           >
             <Download size={14} />
             Download CV
           </a>
           <button
             onClick={() => setOpen((o) => !o)}
-            className="md:hidden p-2 rounded-full bg-white/5 border border-white/10"
+            className="md:hidden p-2 rounded-full bg-white/5 border border-white/10 shrink-0"
             aria-label="Toggle menu"
           >
             {open ? <X size={18} /> : <Menu size={18} />}

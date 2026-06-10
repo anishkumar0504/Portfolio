@@ -14,10 +14,10 @@ type Project = {
 };
 
 const projects: Project[] = [
-  { number: "01", category: "VIDEO PLATFORM", githubUrl: "#", liveUrl: "#" },
-  { number: "02", category: "AI SEARCH", githubUrl: "#", liveUrl: "#", tinted: true },
-  { number: "03", category: "E-COMMERCE", githubUrl: "#", liveUrl: "#" },
-  { number: "04", category: "DASHBOARD", githubUrl: "#", liveUrl: "#", tinted: true },
+  { number: "01", category: "VIDEO STREAMING PLATFORM", githubUrl: "#", liveUrl: "#" },
+  { number: "02", category: "AI SEARCH ENGINE", githubUrl: "#", liveUrl: "#", tinted: true },
+  { number: "03", category: "LINK HUB ", githubUrl: "#", liveUrl: "#" },
+  { number: "04", category: "DISCORD", githubUrl: "#", liveUrl: "#", tinted: true },
 ];
 
 export function Projects() {
@@ -36,8 +36,11 @@ export function Projects() {
       <div className="mx-auto max-w-7xl w-full grid md:grid-cols-[40%_60%] gap-10 items-center">
         {/* LEFT label */}
         <div className={shown ? "animate-fade-up" : "opacity-0"}>
-          <h2 className="font-display font-black text-white text-6xl md:text-7xl leading-[0.95] tracking-tight">
-            PROJECTS
+          <h2 className="font-display font-black text-white text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-tight">
+            PROJECT
+            <span className="text-transparent" style={{ WebkitTextStroke: "2px white" }}>
+              S
+            </span>
           </h2>
           <p className="mt-4 text-sm text-white/40 tracking-wide">
           </p>
