@@ -112,13 +112,12 @@ const Leads = () => {
             "radial-gradient(ellipse at top left, #1a0533 0%, transparent 55%)",
         }}
       >
-        <section className="flex-col justify-center items-start gap-8 px-6 py-24 min-h-screen">
-          <h2 className="text-6xl font-bold leading-none">
-            SKILL
-            <span className="text-transparent" style={{ WebkitTextStroke: "2px white" }}>
-              S
-            </span>
-          </h2>
+<section className="flex flex-col justify-center items-start gap-8 px-6 py-24 min-h-screen">         <h2 className="text-6xl font-bold leading-none">
+  SKILL
+  <span style={{ color: "transparent", WebkitTextStroke: "2px #a78bd9" }}>
+    S
+  </span>
+</h2>
 
           <div className="grid grid-cols-2 auto-rows-fr gap-4 w-full">
             {[...Array(4)].map((_, index) => (

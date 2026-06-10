@@ -11,32 +11,46 @@ type Certificate = {
 
 const certificates: Certificate[] = [
   {
-    title: "Meta Front-End Developer",
-    issuer: "Meta · Coursera",
-    date: "2024",
-    credentialUrl: "#",
-    skills: ["React", "JavaScript", "UX"],
+    title: "Back-End Apps with Node.js & Express",
+    issuer: "IBM · Coursera",
+    date: "Feb 2025",
+    credentialUrl: "https://coursera.org/share/ce216f2a3c167011490a1ad8f51325d9",
+    skills: ["Node.js", "Express.js", "REST APIs"],
   },
   {
-    title: "AWS Certified Developer",
-    issuer: "Amazon Web Services",
-    date: "2023",
-    credentialUrl: "#",
-    skills: ["Lambda", "DynamoDB", "S3"],
+    title: "Google Cloud Certified Docker",
+    issuer: "Google Cloud · Coursera",
+    date: "Feb 2025",
+    credentialUrl: "https://coursera.org/share/38e7a1587d4c75f674731110f077e9a6",
+    skills: ["Docker", "Containers", "Cloud"],
   },
   {
-    title: "Full-Stack Web Development",
-    issuer: "freeCodeCamp",
-    date: "2023",
-    credentialUrl: "#",
-    skills: ["Node.js", "Express", "MongoDB"],
+    title: "AWS S3, EC2 & ASG",
+    issuer: "AWS · Coursera",
+    date: "Feb 2025",
+    credentialUrl: "https://coursera.org/share/eaf8c90320f9e87827077c540fc82c2b",
+    skills: ["Amazon S3", "Amazon EC2", "Auto Scaling"],
   },
   {
-    title: "Google UX Design",
-    issuer: "Google · Coursera",
-    date: "2022",
-    credentialUrl: "#",
-    skills: ["Figma", "Prototyping", "Research"],
+    title: "JavaScript Programming Essentials",
+    issuer: "IBM · Coursera",
+    date: "Mar 2026",
+    credentialUrl: "https://coursera.org/account/accomplishments/certificate/RQ0EG8XBV1NS",
+    skills: ["JavaScript", "ES6+"],
+  },
+  {
+    title: "Data Mining in Python",
+    issuer: "University of Michigan · Coursera",
+    date: "Mar 2026",
+    credentialUrl: "https://coursera.org/verify/QQC504MZ4HXZ",
+    skills: ["Python", "Data Mining", "ML"],
+  },
+  {
+    title: "Search Engine Optimization",
+    issuer: "IBM · Coursera",
+    date: "Jun 2026",
+    credentialUrl: "https://coursera.org/account/accomplishments/records/S2J8751S85US",
+    skills: ["SEO", "Content Marketing", "E-commerce"],
   },
 ];
 
@@ -62,7 +76,11 @@ export function Certificates() {
             Credentials
           </span>
           <h2 className="mt-4 font-display font-black text-white text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-tight">
-            CERTIFI<span className="text-gradient-violet">CATES</span>
+            CERTIFICATE
+            <span className="text-transparent" style={{ WebkitTextStroke: "2px #a78bd9" }}>
+  S
+</span>
+            {/* <span className="text-gradient-violet">S</span> */}
           </h2>
           <p className="mt-4 text-sm sm:text-base text-white/50 leading-relaxed">
             A few certifications I've earned through hands-on projects and

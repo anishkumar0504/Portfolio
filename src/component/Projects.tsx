@@ -40,9 +40,9 @@ export function Projects() {
         <div className={shown ? "animate-fade-up" : "opacity-0"}>
           <h2 className="font-display font-black text-white text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-tight">
             PROJECT
-            <span className="text-transparent" style={{ WebkitTextStroke: "2px white" }}>
-              S
-            </span>
+             <span style={{ color: "transparent", WebkitTextStroke: "2px #a78bd9" }}>
+    S
+  </span>
           </h2>
           <p className="mt-4 text-sm text-white/40 tracking-wide"></p>
         </div>

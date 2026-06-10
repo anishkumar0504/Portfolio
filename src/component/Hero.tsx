@@ -127,7 +127,7 @@ useEffect(() => {
             Hello, I am
           </p>
           <h1 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05]">
-            Anish Kuma<span className="text-transparent" style={{ WebkitTextStroke: "2px white" }}>
+            Anish Kuma<span className="text-transparent" style={{ WebkitTextStroke: "2px #a78bd9" }}>
               r
             </span>
           </h1>

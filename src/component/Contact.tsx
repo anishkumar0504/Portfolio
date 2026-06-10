@@ -58,7 +58,9 @@ export function Contact() {
             Get in touch
           </span>
           <h2 className="mt-4 font-display font-black text-white text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-tight">
-            LET&apos;S <span className="text-gradient-violet">TALK</span>
+            LET&apos;S TAL<span className="text-transparent" style={{ WebkitTextStroke: "2px #a78bd9" }}>
+              K
+            </span>
           </h2>
           <p className="mt-4 text-sm sm:text-base text-white/50 leading-relaxed max-w-md">
             Have a project in mind, a question, or just want to say hi? Drop a
