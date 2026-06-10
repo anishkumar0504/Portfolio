@@ -84,7 +84,7 @@ useEffect(() => {
           />
           {/* floating tech text */}
           <div aria-hidden className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-            {techStrings.map((t, i) => {
+            {/* {techStrings.map((t, i) => {
               const top = (i * 37) % 90;
               const left = (i * 53) % 85;
               const size = 10 + (i % 5);
@@ -102,17 +102,13 @@ useEffect(() => {
                   {t}
                 </span>
               );
-            })}
+            })} */}
           </div>
 
           {/* photo card */}
           <div
-            className="relative z-10 h-full w-full rounded-2xl overflow-hidden"
-            style={{
-              background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.1)",
-            }}
-          >
+            className="relative z-10 h-full w-full rounded-3xl overflow-hidden"
+            >
             <img
               src="./hero-photo.png"
               alt="Portrait"
