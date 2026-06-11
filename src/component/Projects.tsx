@@ -17,7 +17,7 @@ type Project = {
 };
 
 const projects: Project[] = [
-  { number: "01", category: "VIDEO STREAMING PLATFORM", githubUrl: "https://github.com/anishkumar0504/StreamForge", liveUrl: "https://streamflow.iamanish.in/", image: "./projects/p1.png" },
+  { number: "01", category: "StreamForge", githubUrl: "https://github.com/anishkumar0504/StreamForge", liveUrl: "http://streamforge.iamanish.in/", image: "./projects/p1.png" },
   { number: "02", category: "Nexus", githubUrl: "https://github.com/anishkumar0504/NEXUS", liveUrl: "https://nexus.iamanish.in/", tinted: true, image: "./projects/p2.png" },
   { number: "03", category: "LINK HUB", githubUrl: "https://github.com/anishkumar0504/linkHub", liveUrl: "#", image: "./projects/p3.png" },
 ];
