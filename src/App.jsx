@@ -6,8 +6,10 @@ import Card from './component/Card'
 import Leads from './component/Leads'
 import { Certificates } from './component/Certificates'
 import { Contact } from './component/Contact'
+import { useLenis } from './hooks/useLenis'
 
 const App = () => {
+   useLenis();
   return (
    <div className="relative isolate">
       <Navbar />

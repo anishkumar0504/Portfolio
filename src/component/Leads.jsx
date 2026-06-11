@@ -93,6 +93,7 @@ const Leads = () => {
             },
           });
         }
+        ScrollTrigger.refresh();
       });
 
       return () => mm.revert();
